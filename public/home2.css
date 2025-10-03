@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding-top: 90px;
+}
+
+.editform {
+  margin-bottom: 20px;
+  width: 60vw;
+  display: flex;
+  justify-self: center;
+}
+
+.detailcard {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+nav img {
+  border-radius: 50%;
+}
+
+.card-img-top {
+  height: 300px;
+}
+
+.card {
+  display: inline-block;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+#detailform {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#iamreview {
+  background-color: #f8f9fa;
+  color: #000000;
+  margin-left: 13px;
+  border-radius: 7px;
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#iamreview p{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+footer{
+  width: 100vw;
+}
+
+
+
+/* Switch off color */
+.form-check-input {
+  background-color: #fff; /* default off */
+  border-color: #ccc;
+  height: 1.2rem;
+}
+
+/* Switch on color */
+.form-check-input:checked {
+  background-color: red; /* on color */
+  border-color: red;
+}
+
+/* Thumb color (circle) */
+.form-check-input:checked::before {
+  background-color: white;
+}
+
+@media (max-width: 1220px) {
+  .filter2 {
+    display: none !important;
+  }
+  .form-check-reverse{
+    border: none !important;
+  }
+}
+
+@media (min-width: 1220px) {
+  .filter1 {
+    display: none !important;
+  } 
+}

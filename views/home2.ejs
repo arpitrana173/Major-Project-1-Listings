@@ -1,0 +1,98 @@
+<%- include('includes/header') %>
+
+<div class="container">
+  <div class="filter d-flex" style="font-size: 0.8rem">
+    <!-- <div class="filter1 mt-3 mb-3 me-4 ms-4">
+      <i class="fa-solid fa-filter text-center"></i>
+      <p>Filter</p>
+    </div> -->
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-bed text-center"></i>
+      <p>Rooms</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-city"></i>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-mountain-sun text-center"></i>
+      <p>Mountains</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-chess-rook text-center"></i>
+      <p>Castle</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-person-swimming text-center"></i>
+      <p>Amazing Pool</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-campground text-center"></i>
+      <p>Camping</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-tractor text-center"></i>
+      <p>Farm House</p>
+    </div>
+    <div class="filter2 mt-2 mb-3 me-4 text-center">
+      <i class="fa-solid fa-snowflake text-center"></i>
+      <p>Arctic</p>
+    </div>
+
+    <div class="mt-2 mb-4 d-flex ms-auto px-3">
+      <div class="filter1 mt-3 mb-3 me-4 ms-4">
+        <i class="fa-solid fa-filter text-center"></i>
+        <p>Filter</p>
+      </div>
+      <div
+        class="form-check-reverse form-switch d-flex align-items-center border border-1 border-secondary rounded mb-2 px-3"
+      >
+        <label class="form-check-label mb-0 me-2" for="switchCheckDefault">
+          Add Taxes
+        </label>
+        <input
+          class="form-check-input m-0"
+          type="checkbox"
+          role="switch"
+          id="switchCheckDefault"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <% objectArray.forEach(obj => { %>
+    <a href="listing/<%= obj._id %>">
+      <div class="card" style="width: 400px">
+        <img src="<%= obj.image.url %>" class="card-img-top" alt="img" />
+        <div class="card-body">
+          <p class="card-text"><%= obj.title %></p>
+          <p class="card-text">
+            &#8377;<%=obj.price.toLocaleString("en-IN") %> / night &nbsp&nbsp
+            <i class="tax" style="display: none">+18% GST</i>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% }) %>
+  </div>
+</div>
+
+<script>
+  let toggleTax = document.getElementById("switchCheckDefault");
+  toggleTax.addEventListener("click", () => {
+    let tax = Array.from(document.getElementsByClassName("tax"));
+    tax.forEach((taxes) => {
+      if (taxes.style.display == "none") {
+        taxes.style.display = "inline";
+      } else {
+        taxes.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<%- include('includes/footer') %>

@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
+}
+
+nav{
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    top: 0;
+    width: 100vw;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    gap: 50px; 
+    align-items: center;
+}
+
+#logo{
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+}
+
+h1 {
+    margin-top: 120px;
+  font-size: 2.5rem;
+}
+
+img {
+  height: 300px;
+  width: 400px;
+  border-radius: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 408px);
+  gap: 70px;
+  /* border: 2px solid black; */
+}
+
+.page {
+  width: 1368px;
+  margin: auto;
+  /* border: 2px solid black; */
+}

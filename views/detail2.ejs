@@ -1,0 +1,118 @@
+<%- include('includes/header') %>
+<div class="detailcard">
+  <div class="card" style="width: 700px">
+    <img
+      src="<%= item.image.url %>"
+      class="card-img-top"
+      alt="1"
+      style="height: 550px"
+    />
+    <div class="card-body">
+      <p class="card-title"><b>Owner :</b> <%= item.owner.username %></p>
+      <h5 class="card-title"><%= item.title %></h5>
+      <p class="card-text"><%= item.description %></p>
+      <p class="card-text">$<%= item.price %> / night</p>
+      <p class="card-text"><%= item.location %></p>
+      <p class="card-text"><%= item.country %></p>
+
+
+      <% if(userLogged && userLogged._id.equals(item.owner._id)){ %>
+      <form action="/listing/<%= item._id %>/edit" method="GET" id="detailform">
+        <button type="submit" class="btn btn-secondary">
+          &nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+      </form>
+      <% } %>
+
+      <% if(userLogged && userLogged._id.equals(item.owner._id)){ %>
+      <form
+        action="/listing/<%= item._id %>?_method=DELETE"
+        method="POST"
+        id="detailform"
+      >
+        <button type="submit" class="btn btn-danger">
+          &nbsp;&nbsp;Delete&nbsp;&nbsp;
+        </button>
+      </form>
+      <% } %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<% if(userLogged){ %>
+<div class="detailcard" style="margin-top: 0px">
+  <div class="card" style="width: 700px">
+    <div class="card-body">
+      <form
+        action="/listing/<%= item._id %>/review"
+        method="post"
+        novalidate
+        class="needs-validation"
+      >
+        <h5 class="card-title mb-3">Leave a Review</h5>
+        <div class="rating">
+          <i class="bi bi-star fs-2" data-value="1"></i>
+          <i class="bi bi-star fs-2" data-value="2"></i>
+          <i class="bi bi-star fs-2" data-value="3"></i>
+          <i class="bi bi-star fs-2" data-value="4"></i>
+          <i class="bi bi-star fs-2" data-value="5"></i>
+        </div>
+        <input type="hidden" name="rating" id="rating-input" value="0" />
+
+        <p>Your rating: <span id="rating-value">0</span></p>
+
+        <div class="col-12 mb-3">
+          <textarea
+            name="comment"
+            id="description"
+            class="form-control"
+            required
+          ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please add a Description.</div>
+        </div>
+
+        <div class="mb-2">
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% } %>
+
+
+
+<div class="detailcard" style="margin-top: 0px">
+  <div class="card" style="width: 80vw; border: 0px">
+    <hr />
+    <div class="card-body">
+      <h5 class="card-title mb-4">Reviews</h5>
+      <div class="row" style="display: flex; justify-content: center">
+        <% item.review.forEach(revs => { %>
+        <div class="card-text col-5 me-3 mb-3" id="iamreview">
+          <div>
+            <p style="line-height: 0"><b>By <%= revs.author.username %></b></p>
+            <p><%- revs.comment %>.</p>
+          </div>
+        <% if(userLogged && userLogged._id.equals(revs.author._id)){ %>        
+          <form
+            action="/listing/<%= item._id %>/review/<%= revs._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline-block"
+          >
+            <button type="submit" class="btn btn-danger mb-3">Delete</button>
+          </form>
+          <% } %>
+
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('includes/footer') %>

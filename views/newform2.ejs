@@ -1,0 +1,103 @@
+<%- include('includes/header') %>
+<div class="editform">
+  <form
+    class="row g-3 needs-validation"
+    action="/listing/newpost"
+    method="POST"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputEmail4"
+        name="title"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a Title.</div>
+    </div>
+
+    <div class="col-12">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        class="form-control"
+        required
+      ></textarea>
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please add a Description.</div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="inputPassword4" class="form-label">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="inputPassword4"
+        name="image"
+      />
+    </div>
+    <div class="col-6">
+      <label for="inputAddress" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputAddress"
+        name="price"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a Price.</div>
+    </div>
+    <div class="col-6">
+      <label for="inputAddress2" class="form-label">Country</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress2"
+        name="country"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a Country.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        name="location"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a Location.</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">State</label>
+      <select id="inputState" class="form-select">
+        <option selected>Choose</option>
+        <option>Uttar Pradesh</option>
+        <option>Telengana</option>
+        <option>Bihar</option>
+        <option>Gujrat</option>
+        <option>Andhra Pradesh</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck" />
+        <label class="form-check-label" for="gridCheck"> Check me out </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+<%- include('includes/footer') %>
