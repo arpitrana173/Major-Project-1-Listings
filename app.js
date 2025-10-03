@@ -55,7 +55,7 @@ const mystore = MongoStore.create({
   },
   touchAfter : 24*3600,
 })
-store.on("error",()=>{
+mystore.on("error",()=>{
   console.log("Error In Mongo Session Store", err)
 })
 
